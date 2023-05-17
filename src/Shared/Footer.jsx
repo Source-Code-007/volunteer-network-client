@@ -2,7 +2,7 @@ import logo from '../assets/logo.png'
 const Footer = () => {
     return (
         <footer className="footer p-10 bg-base-200 text-base-content">
-            <div className='flex justify-center items-center'>
+            <div className='h-full w-full flex flex-col justify-center items-center'>
                 <img className='w-36 h-auto' src={logo} alt="" />
                 <p>Be a person you wish others to be.</p>
             </div>
