@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from '../assets/logo.png'
+import { FaArrowRight } from "react-icons/fa";
 
 const Nav = () => {
         const menu = <>
@@ -9,7 +10,7 @@ const Nav = () => {
         </>
     return (
 
-        <div className="navbar bg-teal-500">
+        <div className="navbar bg-teal-400 py-0 pr-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -21,13 +22,14 @@ const Nav = () => {
                 </div>
                 <Link to={'/'}><img className="w-24 h-auto" src={logo} alt="" /></Link>
             </div>
-            <div className="navbar-center hidden lg:flex font-semibold">
+            <div className="navbar-center px-12 hidden lg:flex font-semibold">
                 <ul className="menu menu-horizontal px-1">
                     {menu}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Get started</a>
+            <div className="navbar-end h-[64px] relative">
+                <div className="h-full w-16 bg-teal-700 absolute -left-10 top-0 skew-x-12"></div>
+                <Link className="bg-teal-700 h-full w-full text-yellow-500  font-bold flex gap-2 items-center pl-10">Make Donation <FaArrowRight></FaArrowRight> </Link>
             </div>
         </div>
     );
