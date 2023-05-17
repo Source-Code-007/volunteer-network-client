@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { BallTriangle } from "react-loader-spinner";
 
 const VolunteerOpportunities = () => {
-    const [volunteerOpportunities, setVolunteerOpportunities] = useState()
+    const [volunteerOpportunities, setVolunteerOpportunities] = useState([])
     useEffect(() => {
         fetch(`http://localhost:2500/volunteer-opportunities`)
             .then(res => res.json())
@@ -9,8 +10,8 @@ const VolunteerOpportunities = () => {
     }, [])
     return (
         <div>
-
             <div className="my-container">
+
                 <div className="space-y-3 py-8 text-center max-w-xl mx-auto">
                     <h2 className="font-bold text-4xl">I grow by helping people in need.</h2>
                     <div className="form-control">
@@ -24,19 +25,30 @@ const VolunteerOpportunities = () => {
                 </div>
 
 
-                <div className="grid grid-cols-3 gap-4">
+                {
+                    volunteerOpportunities.length ?
+                        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+                            {
+                                volunteerOpportunities.map(opportunities => {
+                                    const { _id, name, image, colorCode } = opportunities
+                                    console.log(colorCode);
+                                    return <div key={_id} className="h-72 bg-orange-500 rounded-lg bg-cover bg-center relative" style={{ backgroundImage: `url(${image})` }}>
+                                        <div className={`absolute bottom-0 left-0 right-0 rounded-b-lg py-5 text-center font-bold text-xl text-white`} style={{ background: `${colorCode}` }}>{name}</div></div>
+                                })
+                            }
+                        </div> : <div className="h-[50vh] flex justify-center items-center"><BallTriangle
+                            height={100}
+                            width={100}
+                            radius={5}
+                            color="#4fa94d"
+                            ariaLabel="ball-triangle-loading"
+                            wrapperClass={{}}
+                            wrapperStyle=""
+                            visible={true}
+                        /></div>
+                }
 
-                    {
-                        volunteerOpportunities && volunteerOpportunities.map(opportunities => {
-                            const { _id, name, image, colorCode } = opportunities
-                            console.log(colorCode);
-                            return <div key={_id} className="h-72 bg-orange-500 rounded-lg bg-cover bg-center relative" style={{ backgroundImage: `url(${image})` }}>
-                                <div className={`absolute bottom-2 left-0 right-0 w-full py-5 text-center font-bold text-xl text-white`} style={{background: `${colorCode}`}}>{name}</div></div>
-                        })
-                    }
-                </div>
             </div>
-
         </div>
     );
 };
