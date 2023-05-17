@@ -7,7 +7,7 @@ const Nav = () => {
             <li><Link to={'/'}>Home</Link></li>
             <li><Link to={'/about'}>About</Link></li>
             <li><Link to={'/volunteer'}>Volunteer</Link></li>
-            <li><Link to={'/dashboard/volunteers-list'}>Admin</Link></li>
+            <li><Link to={'/dashboard/volunteers-list'}> <button className="btn btn-info">Admin</button> </Link></li>
         </>
     return (
 
@@ -21,7 +21,7 @@ const Nav = () => {
                       {menu}
                     </ul>
                 </div>
-                <Link to={'/'}><img className="w-24 h-auto" src={logo} alt="" /></Link>
+                <Link to={'/'}><img className="w-28 h-auto" src={logo} alt="" /></Link>
             </div>
             <div className="navbar-center px-12 hidden lg:flex font-semibold">
                 <ul className="menu menu-horizontal px-1">

@@ -1,5 +1,4 @@
-import React from 'react';
-import VolunteerOpportunities from '../Shared/VolunteerOpportunities';
+import VolunteerOpportunities from "../../Shared/VolunteerOpportunities";
 
 const Homepage = () => {
     return (
