@@ -1,10 +1,9 @@
 import React from 'react';
+import VolunteerOpportunities from '../Shared/VolunteerOpportunities';
 
 const Homepage = () => {
     return (
-        <div className='py-6 bg-blue-500 h-screen'>
-            THis is homepage
-        </div>
+        <VolunteerOpportunities></VolunteerOpportunities>
     );
 };
 
