@@ -12,11 +12,11 @@ const VolunteerOpportunities = () => {
         <div>
             <div className="my-container">
 
-                <div className="space-y-3 py-8 text-center max-w-xl mx-auto">
-                    <h2 className="font-bold text-4xl">I grow by helping people in need.</h2>
+                <div className="space-y-4 py-8 text-center max-w-3xl mx-auto">
+                    <h2 className="font-bold text-4xl uppercase">I grow by helping people in need.</h2>
                     <div className="form-control">
                         <div className="input-group justify-center">
-                            <input type="text" placeholder="Search…" className="input input-bordered w-5/6" />
+                            <input type="text" placeholder="Search…" className="input input-bordered w-4/6" />
                             <button className="btn btn-square">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                             </button>

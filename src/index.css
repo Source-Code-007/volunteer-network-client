@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* common css */
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+}
 
-.my-container{
+.my-container {
     @apply max-w-7xl mx-8 xl:mx-auto
 }
