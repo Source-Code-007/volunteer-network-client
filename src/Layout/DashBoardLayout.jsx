@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import VolunteersLeftNav from "../AdminPages/VolunteersLeftNav";
 
-const LayoutTwoAdmin = () => {
+const DashBoardLayout = () => {
     return (
         <div className="grid grid-cols-12 min-h-screen">
             <div className="col-span-2 bg-slate-50"><VolunteersLeftNav></VolunteersLeftNav></div>
@@ -10,4 +10,4 @@ const LayoutTwoAdmin = () => {
     );
 };
 
-export default LayoutTwoAdmin;
+export default DashBoardLayout;

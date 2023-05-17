@@ -4,8 +4,9 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import LayoutOne from './Layout/LayoutOne.jsx'
 import Homepage from './Pages/Homepage.jsx'
-import LayoutTwoAdmin from './Layout/LayoutTwoAdmin'
 import VolunteersList from './AdminPages/VolunteersList'
+import DashBoardLayout from './Layout/DashBoardLayout'
+import AddEvent from './AdminPages/AddEvent'
 
 const router = createBrowserRouter([
   {
@@ -19,16 +20,16 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: '/admin',
-    element: <LayoutTwoAdmin></LayoutTwoAdmin>,
+    path: '/',
+    element: <DashBoardLayout></DashBoardLayout>,
     children: [
       {
-        path: '/admin/volunteers-list',
+        path: '/dashboard/volunteers-list',
         element: <VolunteersList></VolunteersList>
       },
       {
-        path: '/admin/add-event',
-        element: <VolunteersList></VolunteersList>
+        path: '/dashboard/add-event',
+        element: <AddEvent></AddEvent>
       },
     ]
   }
