@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 const VolunteerOpportunities = () => {
     const [volunteerOpportunities, setVolunteerOpportunities] = useState([])
     const navigate = useNavigate()
+    
+    // initial data load from mongodb database
     useEffect(() => {
         fetch(`http://localhost:2500/volunteer-opportunities`)
             .then(res => res.json())
