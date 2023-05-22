@@ -41,7 +41,6 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/volunteers-list',
         element: <VolunteersList></VolunteersList>,
-        loader: () => fetch(`http://localhost:2500/volunteers`)
       },
       {
         path: '/dashboard/add-event',
