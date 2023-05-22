@@ -1,6 +1,9 @@
 import { FaTrash } from 'react-icons/fa';
+import { useLoaderData } from 'react-router-dom';
 
 const VolunteersList = () => {
+    const loadedVolunteers = useLoaderData()
+
     return (
         <div>
             <h2 className='py-6 bg-slate-50 font-bold text-xl'> Volunteer register list </h2>
@@ -19,27 +22,20 @@ const VolunteersList = () => {
                         </thead>
                         <tbody>
                             {/* row 1 */}
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
-                                <td className='text-red-500'> <FaTrash></FaTrash> </td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
-                                <td className='text-red-500'> <FaTrash></FaTrash> </td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
-                                <td className='text-red-500'> <FaTrash></FaTrash> </td>
-                            </tr>
+                            {
+                                loadedVolunteers.map(volunteer => {
+                                    const { _id, name, date, email, responsibility } = volunteer
+                                    return <tr key={_id}>
+                                        <th>{_id}</th>
+                                        <td>{name}</td>
+                                        <td>{email}</td>
+                                        <td>{date}</td>
+                                        <td>{responsibility}</td>
+                                        <td className='text-red-500'> <FaTrash></FaTrash> </td>
+                                    </tr>
+                                })
+                            }
+
                         </tbody>
                     </table>
                 </div>

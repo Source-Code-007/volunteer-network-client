@@ -16,7 +16,8 @@ const RegVol = () => {
         const name = form.name.value
         const email = form.email.value
         const description = form.description.value
-        const newVolunteer = { name, email, date, description }
+        const responsibility = form.responsibility.value
+        const newVolunteer = { name, email, responsibility, date, description }
         const option = {
             method: 'POST',
             headers: {
@@ -59,8 +60,8 @@ const RegVol = () => {
                         <input type="email" id="email" name="email" placeholder='email' />
                     </div>
                     <div>
-                        <label htmlFor="category">category</label>
-                        <input type="text" id="category" className="bg-slate-300" disabled name="category" defaultValue={name} />
+                        <label htmlFor="responsibility">category</label>
+                        <input type="text" id="responsibility" className="bg-slate-300" disabled name="responsibility" defaultValue={name} />
                     </div>
                     <div>
                         <label htmlFor="date">date</label>
