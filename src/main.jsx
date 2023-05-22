@@ -9,11 +9,13 @@ import AddEvent from './AdminPages/AddEvent'
 import Homepage from './Pages/Homepage/Homepage'
 import LayoutThree from './Layout/LayoutThree'
 import RegVol from './Pages/RegVol/RegVol'
+import ErrorPage from './Pages/ErrorPage/ErrorPage'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <LayoutOne></LayoutOne>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',

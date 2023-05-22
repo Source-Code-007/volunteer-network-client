@@ -9,6 +9,7 @@ const RegVol = () => {
     const [date, setDate] = useState('')
     const loadedVolOpportunitties = useLoaderData()
     const { name } = loadedVolOpportunitties
+
     // register volunteer function
     const handleRegVolFunc = (e) => {
         e.preventDefault()
@@ -18,6 +19,7 @@ const RegVol = () => {
         const description = form.description.value
         const responsibility = form.responsibility.value
         const newVolunteer = { name, email, responsibility, date, description }
+
         const option = {
             method: 'POST',
             headers: {
@@ -25,6 +27,7 @@ const RegVol = () => {
             },
             body: JSON.stringify(newVolunteer)
         }
+
         fetch(`http://localhost:2500/add-volunteer`, option)
             .then(res => res.json())
             .then(data => {
@@ -42,7 +45,6 @@ const RegVol = () => {
                 }
             })
             .catch(e => console.log(e.message))
-
 
     }
 
