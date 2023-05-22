@@ -1,4 +1,4 @@
-import VolunteerOpportunities from "../../Shared/VolunteerOpportunities";
+import VolunteerOpportunities from "./VolunteerOpportunities";
 
 const Homepage = () => {
     return (

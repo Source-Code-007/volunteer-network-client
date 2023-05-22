@@ -8,7 +8,7 @@ import DashBoardLayout from './Layout/DashBoardLayout'
 import AddEvent from './AdminPages/AddEvent'
 import Homepage from './Pages/Homepage/Homepage'
 import LayoutThree from './Layout/LayoutThree'
-import RegisterVolunteer from './Pages/RegisterVolunteer'
+import RegVol from './Pages/RegVol/RegVol'
 
 const router = createBrowserRouter([
   {
@@ -21,16 +21,19 @@ const router = createBrowserRouter([
       }
     ]
   },
+
   {
     path: '/',
     element: <LayoutThree></LayoutThree>,
     children: [
       {
         path: '/register-volunteer/:id',
-        element: <RegisterVolunteer></RegisterVolunteer>
+        element: <RegVol></RegVol>,
+        loader: ({params}) => fetch(`http://localhost:2500/volunteer-opportunities/${params.id}`)
       }
     ]
   },
+
   {
     path: '/',
     element: <DashBoardLayout></DashBoardLayout>,

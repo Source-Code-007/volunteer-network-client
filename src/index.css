@@ -7,6 +7,11 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Montserrat', sans-serif;
 }
 
+/* react date */
+.react-datepicker__view-calendar-icon input{
+    padding: 8px 15px !important;
+}
+
 .my-container {
     @apply max-w-7xl mx-8 xl:mx-auto
 }

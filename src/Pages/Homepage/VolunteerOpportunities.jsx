@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const VolunteerOpportunities = () => {
     const [volunteerOpportunities, setVolunteerOpportunities] = useState([])
     const navigate = useNavigate()
-    
+
     // initial data load from mongodb database
     useEffect(() => {
         fetch(`http://localhost:2500/volunteer-opportunities`)
@@ -35,8 +35,7 @@ const VolunteerOpportunities = () => {
                             {
                                 volunteerOpportunities.map(opportunities => {
                                     const { _id, name, image, colorCode } = opportunities
-                                    console.log(colorCode);
-                                    return <div onClick={()=> navigate(`register-volunteer/${_id}`)} key={_id} className="h-72 bg-orange-500 rounded-lg bg-cover bg-center relative" style={{ backgroundImage: `url(${image})` }}>
+                                    return <div onClick={() => navigate(`register-volunteer/${_id}`)} key={_id} className="h-72 bg-orange-500 rounded-lg bg-cover bg-center relative" style={{ backgroundImage: `url(${image})` }}>
                                         <div className={`absolute bottom-0 left-0 right-0 rounded-b-lg py-5 text-center font-bold text-xl text-white`} style={{ background: `${colorCode}` }}>{name}</div></div>
                                 })
                             }
