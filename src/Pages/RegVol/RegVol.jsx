@@ -2,12 +2,14 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegVol = () => {
     const [date, setDate] = useState('')
     const loadedVolOpportunitties = useLoaderData()
-    const { _id, name } = loadedVolOpportunitties
-
+    const { name } = loadedVolOpportunitties
+    // register volunteer function
     const handleRegVolFunc = (e) => {
         e.preventDefault()
         const form = e.target
@@ -15,7 +17,6 @@ const RegVol = () => {
         const email = form.email.value
         const description = form.description.value
         const newVolunteer = { name, email, date, description }
-        // console.log(newVolunteer);
         const option = {
             method: 'POST',
             headers: {
@@ -25,7 +26,20 @@ const RegVol = () => {
         }
         fetch(`http://localhost:2500/add-volunteer`, option)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.insertedId) {
+                    toast.success('Registration successful!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
+            })
             .catch(e => console.log(e.message))
 
 
@@ -82,6 +96,19 @@ const RegVol = () => {
                     <button className='btn btn-info w-full'>Submit</button>
                 </form>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+            <ToastContainer />
         </div>
     );
 };
